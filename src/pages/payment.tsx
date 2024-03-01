@@ -1,7 +1,6 @@
 import { Countdown, Loader } from "@/components";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
 import styles from "../styles/Payment.module.scss";
 
 export default function Payment() {
@@ -12,6 +11,7 @@ export default function Payment() {
 
     if (query.get("success")) setStatus("success");
     if (query.get("canceled")) setStatus("canceled");
+
   }, []);
 
   const options = {
@@ -41,7 +41,6 @@ export default function Payment() {
             height={100}
           />
         )}
-
         <span>{options[status!]?.text}</span>
       </div>
 

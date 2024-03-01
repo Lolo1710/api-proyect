@@ -12,14 +12,23 @@
     "@types/node": "18.15.13",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
+    "@vercel/client": "^13.1.3",
+    "@vercel/postgres": "^0.7.2",
+    "autoprefixer": "^10.4.17",
     "axios": "^1.3.6",
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.2",
     "next": "13.3.0",
+    "postcss": "^8.4.35",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.62.0",
     "stripe": "^12.2.0",
+    "tailwindcss": "^3.4.1",
     "typescript": "5.0.4"
   }
 }

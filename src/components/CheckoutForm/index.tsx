@@ -8,7 +8,7 @@ interface CheckoutFormProps {
 export const CheckoutForm = ({ productSelected }: CheckoutFormProps) => {
   return (
     <form
-      action={`http://localhost:3000/api/checkout?price_id=${productSelected.default_price}`}
+      action={`http://localhost:3000/api/checkout?price_id=${productSelected.default_price}&product=${productSelected.name}`}
       method="POST"
       className={styles.checkout}
     >

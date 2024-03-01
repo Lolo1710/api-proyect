@@ -11,6 +11,7 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     const { price_id } = req.query;
+    const { product } = req.query;
     
     try {
       const session = await stripe.checkout.sessions.create({
@@ -22,13 +23,17 @@ export default async function handler(
           },
         ],
         mode: "payment",
-        success_url: `${req.headers.origin}/payment?success=true`,
-        cancel_url: `${req.headers.origin}/payment?canceled=true`,
+        success_url: `${req.headers.origin}/api/pago?status=true&sessionId={CHECKOUT_SESSION_ID}&product=${product}`,
+        cancel_url: `${req.headers.origin}/api/pago?status=false&sessionId={CHECKOUT_SESSION_ID}&product=${product}`,
       });
 
+      
+
       if (session.url) {
-        res.redirect(303, session.url);
+        res.redirect(303, `${session.url}`)
+        console.log(session.success_url)
       }
+
     } catch (error: any) {
       res.status(error.statusCode || 500).json({ error: error.message });
     }
